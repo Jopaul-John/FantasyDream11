@@ -1,0 +1,117 @@
+
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <title>Fantasy 2k17</title>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/css?family=Asap|Anton" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{% static "css/materialize.css" %}" media="screen,projection" rel="stylesheet" type="text/css">
+    <link href="{% static "css/style.css" %}" media="screen,projection" rel="stylesheet" type="text/css"> 
+</head>
+<body style="font-family:'Asap'">
+     <nav class="transparent navbar-fixed" role="navigation">
+        <div class="nav-wrapper container">
+            <a class="brand-logo" href="/home/" target="_blank" id="logo-container"><b>Fantasy News</b></a>
+            <ul class="right hide-on-med-and-down">
+                <li>
+                    <a href="/home/">Home</a>
+                </li>
+                <li>
+                    <a href="#high">Highlights</a>
+                </li>
+                <li>
+                    <a href="#content">Content</a>
+                </li>
+                <li>
+                    <a href="#more">More</a>
+                </li>
+            </ul>
+            <ul class="side-nav" id="nav-mobile">
+                  <li>
+                    <a href="/home/">Home</a>
+                </li>
+                <li>
+                    <a href="#high">Highlights</a>
+                </li>
+                <li>
+                    <a href="#content">Content</a>
+                </li>
+                <li>
+                    <a href="#more">More</a>
+                </li>
+            </ul><a class="button-collapse" data-activates="nav-mobile" href="#"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+    <section id="home">
+        <div class="row center">
+            <h1>Fantasy News</h1>
+            <h5>A Portal to get all the news and updates regarding Fantasy League</h5>
+        </div>
+    </section>
+   <section id="high">
+    <div class="container">
+        <div class="row">
+            {% for mat in match %}
+            <div class="col s12 m3">
+                <div class="card black" style="border:2px solid white">
+                    <div class="card-image"> 
+                        {% if mat.tournament.is_cricket %}
+                        <a href="/cricket/{{ mat.id }}/"><img src="{{ mat.image.url }}" width="200" height="200"></a>
+                        {% else %}                       
+                        <a href="/football/{{ mat.id }}/"><img src="{{ mat.image.url }}" width="200" height="200"></a>
+                        {% endif %}
+                    </div>
+                    <div class="card-content center">
+                        <p>{{ mat.tournament.tournament_name|safe }}</p><br>
+                        {% if mat.cricket_match_name %}
+                            <p>{{ mat.cricket_match_name|safe }}</p>
+                        {% else %}
+                        <p>{{ mat.football_match_name|safe }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+    </section>
+   <section id="content">
+    <div class="row white-text" style="font-family:Anton">
+         <div class="col s12 m6 white-text general waves-effect center">
+            <h2 class="down">CRICKET</h2>
+            <br> <a href="/cricket/" class="waves-effect waves-light mybtn btn center lildown">Explore</a>
+            <br> </div>
+        <div class="col s12 m6 white-text technical waves-effect center">
+            <h3 class="down">FOOTBALL</h3>
+            <br> <a href="/football/" class="waves-effect waves-light mybtn btn center lildown">Explore</a>
+            <br> </div>
+    </div>
+    </section>
+    <footer class="grey darken-3" style="z-index:999">
+    <div class="footer-copyright" style="padding-top:5px;">
+        <div class="container white-text" style=" margin-top:10px;">Fantasy 2k17<a class="white-text text-lighten-3 right">All Rights Reserved. Made by Yellow Inc.</a> </div>
+    </div>
+    </div>
+</footer>
+    <script src="{% static "js/jquery-2.1.4.js" %}">
+    </script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="{% static "js/materialize.js" %}">
+    </script>
+    <script src="{% static "js/init.js" %}">
+    </script>
+   
+    <script type='text/javascript' src="{% static "js/mobile.js" %}"></script>
+    <script>
+        $(document).ready(function () {
+            $('.slider').slider();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,277 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <title>Post</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Coda" rel="stylesheet">
+    <link href="{% static "css/materialize.css" %}" media="screen,projection" rel="stylesheet" type="text/css">
+    <link href="{% static "css/animate.css" %}" media="screen,projection" rel="stylesheet" type="text/css">
+    <link href="{% static "css/style.css" %}" media="screen,projection" rel="stylesheet" type="text/css">
+    <link href="{% static "css/dataurl.css" %}" media="screen,projection" rel="stylesheet" type="text/css">
+    <style>
+        label{
+            font-size:3em;
+        }
+    </style>
+</head>
+<body style="font-family: Coda" style="height:100vh">
+       <div class="navbar-fixed">
+        <nav class="light-blue lighten-1 mynav" role="navigation">
+            <div class="nav-wrapper container"> <a class="brand-logo" href="/home/" target="_blank" id="logo-container"><b>Fantasy</b></a>
+                <ul class="right hide-on-med-and-down">
+                    <li> <a href="/home/">Home</a> </li>
+                </ul>
+                <ul class="side-nav" id="nav-mobile">
+                    <li> <a href="/home/">Home</a> </li>
+                </ul><a class="button-collapse" data-activates="nav-mobile" href="#"><i class="material-icons">menu</i></a> </div>
+        </nav>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="center col m6 offset-m3 s12">
+                <h3>Post News</h3>
+            <a class="btn mybtn" href="#" id="cricketpost">Cricket</a>
+            <a class="btn mybtn" href="#" id="footballpost">Football</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col m8 offset-m2 s12" id="aboutcricket">
+                <h3 class="center">Cricket</h3>
+                <br>
+                <form method="post" enctype="multipart/form-data"> {% csrf_token %}
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <label for="id_cricket_match_name">Cricket Match</label>
+                            <input id="id_cricket_match_name" maxlength="50" name="cricket_match_name" type="text" required /> </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <label for="id_on_date">On Date</label>
+                            <input id="id_on_date" name="on_date" type="text" value="2017-03-31 16:10:13" required /> </div>
+                        <div class="input-field col s12 m6">
+                            <label for="id_updated_on">Updated On</label>
+                            <input id="id_updated_on" name="updated_on" type="text" value="2017-03-31 16:10:13" required /> </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <label for="id_preview" style="font-size:1.3em">Preview</label>
+                            <textarea cols="40" id="id_preview" name="preview" rows="10" required> </textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <label for="id_para1" style="font-size:1.3em">Para 1</label>
+                            <textarea cols="40" id="id_para1" name="para1" rows="10" required> </textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <label for="id_para2" style="font-size:1.3em">Para 2</label>
+                            <textarea cols="40" id="id_para2" name="para2" rows="10" required> </textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <label for="id_para3" style="font-size:1.3em">Para 3</label>
+                            <textarea cols="40" id="id_para3" name="para3" rows="10" required> </textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <label for="id_team1" style="font-size:1.3em">Team 1</label>
+                            <textarea cols="40" id="id_team1" name="team1" rows="10" required> </textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <label for="id_team1_des" style="font-size:1.3em">Team 1 Description</label>
+                            <textarea cols="40" id="id_team1_des" name="team1_des" rows="10" required> </textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <label for="id_team2" style="font-size:1.3em">Team 2</label>
+                            <textarea cols="40" id="id_team2" name="team2" rows="10" required> </textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <label for="id_team2_des" style="font-size:1.3em">Team 2 Description</label>
+                            <textarea cols="40" id="id_team2_des" name="team2_des" rows="10" required> </textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <label for="id_team3" style="font-size:1.3em">Team 3</label>
+                            <textarea cols="40" id="id_team3" name="team3" rows="10" required> </textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <label for="id_team3_des" style="font-size:1.3em">Team 3 Description</label>
+                            <textarea cols="40" id="id_team3_des" name="team3_des" rows="10" required> </textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <label for="id_conclusion" style="font-size:1.3em">Conclusion</label>
+                            <textarea cols="40" id="id_conclusion" name="conclusion" rows="10" required> </textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <label for="id_final_verdict" style="font-size:1.3em">Final Verdict</label>
+                            <textarea cols="40" id="id_final_verdict" name="final_verdict" rows="10" required> </textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <div class="file-field input-field">
+                                <div class="btn"> <span>File</span>
+                                    <input type="file"> </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" id="id_image" name="image" type="text"> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row center">
+                        <div class="input-field col s12 m12">
+                            <input class="btn green" type="submit" value="Post"> </div>
+                    </div>
+                </form>
+                <br/> </div>
+        </div>
+        <div class="row col m12 s12"> {% if message %}
+            <p>{{ message }}</p> {% endif %} </div>
+        <div class="row">
+            <div class="col m8 offset-m2 s12" id="aboutfootball">
+                <h3 class="center">Football</h3>
+                <br>
+                <form method="post" enctype="multipart/form-data"> {% csrf_token %}
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <label for="id_football_match_name">Football Match</label>
+                            <input id="id_football_match_name" maxlength="50" name="cricket_match_name" type="text" required /> </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <label for="id_on_date">On Date</label>
+                            <input id="id_on_date" name="on_date" type="text" value="2017-03-31 16:10:13" required /> </div>
+                        <div class="input-field col s12 m6">
+                            <label for="id_updated_on">Updated On</label>
+                            <input id="id_updated_on" name="updated_on" type="text" value="2017-03-31 16:10:13" required /> </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <label for="id_preview" style="font-size:1.3em">Preview</label>
+                            <textarea cols="40" id="id_preview" name="preview" rows="10" required> </textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <label for="id_para1" style="font-size:1.3em">Para 1</label>
+                            <textarea cols="40" id="id_para1" name="para1" rows="10" required> </textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <label for="id_para2" style="font-size:1.3em">Para 2</label>
+                            <textarea cols="40" id="id_para2" name="para2" rows="10" required> </textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <label for="id_para3" style="font-size:1.3em">Para 3</label>
+                            <textarea cols="40" id="id_para3" name="para3" rows="10" required> </textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <label for="id_team1" style="font-size:1.3em">Team 1</label>
+                            <textarea cols="40" id="id_team1" name="team1" rows="10" required> </textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <label for="id_team1_des" style="font-size:1.3em">Team 1 Description</label>
+                            <textarea cols="40" id="id_team1_des" name="team1_des" rows="10" required> </textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <label for="id_team2" style="font-size:1.3em">Team 2</label>
+                            <textarea cols="40" id="id_team2" name="team2" rows="10" required> </textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <label for="id_team2_des" style="font-size:1.3em">Team 2 Description</label>
+                            <textarea cols="40" id="id_team2_des" name="team2_des" rows="10" required> </textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <label for="id_team3" style="font-size:1.3em">Team 3</label>
+                            <textarea cols="40" id="id_team3" name="team3" rows="10" required> </textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <label for="id_team3_des" style="font-size:1.3em">Team 3 Description</label>
+                            <textarea cols="40" id="id_team3_des" name="team3_des" rows="10" required> </textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <label for="id_conclusion" style="font-size:1.3em">Conclusion</label>
+                            <textarea cols="40" id="id_conclusion" name="conclusion" rows="10" required> </textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <label for="id_final_verdict" style="font-size:1.3em">Final Verdict</label>
+                            <textarea cols="40" id="id_final_verdict" name="final_verdict" rows="10" required> </textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <div class="file-field input-field">
+                                <div class="btn"> <span>File</span>
+                                    <input type="file"> </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" id="id_image" name="image" type="text"> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row center">
+                        <div class="input-field col s12 m12">
+                            <input class="btn green" type="submit" value="Post"> </div>
+                    </div>
+                </form>
+                <br/> </div>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script>
+    window.onload = function () {
+        $("#aboutcricket").hide();
+        $("#aboutfootball").hide();
+    };
+    $("#cricketpost").click(function (e) {
+        e.preventDefault();
+        $("#aboutfootball").hide();
+        $("#aboutcricket").fadeIn();
+    });
+    $("#footballpost").click(function (e) {
+        e.preventDefault();
+        $("#aboutcricket").hide();
+        $("#aboutfootball").fadeIn();
+    });
+</script>
+    <script type='text/javascript' src="{% static "js/init.js" %}"></script>
+    <script type='text/javascript' src="{% static "js/materialize.min.js" %}"></script>
+</html>

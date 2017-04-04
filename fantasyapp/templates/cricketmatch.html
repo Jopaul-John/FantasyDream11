@@ -1,0 +1,73 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <title>Fantasy 2k17</title>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/css?family=Asap|Monoton" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{% static "css/materialize.css" %}" media="screen,projection" rel="stylesheet" type="text/css">
+    <link href="{% static "css/style.css" %}" media="screen,projection" rel="stylesheet" type="text/css"> 
+</head>
+<body style="font-family:'Asap'">
+        <nav class="black navbar-fixed" role="navigation">
+        <div class="nav-wrapper container">
+            <a class="brand-logo" href="/home/" target="_blank" id="logo-container"><b>Fantasy News</b></a>
+            <ul class="right hide-on-med-and-down">
+                <li>
+                    <a href="/cricket/">Home</a>
+                </li>
+            </ul>
+            <ul class="side-nav" id="nav-mobile">
+                  <li>
+                    <a href="/cricket/">Home</a>
+                </li>
+            </ul><a class="button-collapse" data-activates="nav-mobile" href="#"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+   <div class="container row center">
+    <div class="col m12 s12">
+        <h3 class="upper">{{cric.preview|safe}}</h3>
+        <p class="upper"><span style="font-size:1.5em">{{cric.cricket_match_name|safe}}</span> | {{cric.on_date|safe}}</p> <img class="responsive-img" src="{{cric.image.url}}"> </div>
+    </div>
+    <div class="container row">
+        <div class="col m12 s12">
+            <p>{{cric.para1|safe}}</p>
+            <br>
+            <p>{{cric.para2|safe}}</p>
+            <br>
+            <p>{{cric.para3|safe}}</p>
+            <br>
+            <h5>{{cric.team1|safe}}</h5>
+            <blockquote> {{cric.team1_des|safe}} </blockquote>
+            <h5>{{cric.team2|safe}}</h5>
+            <blockquote> {{cric.team2_des|safe}} </blockquote>
+            <ul class="collection with-header black-text">
+                <li class="collection-header">
+                    <h4>Conclusion</h4></li>
+                <li class="collection-item center">{{cric.conclusion|safe}}</li>
+                <li class="collection-header">
+                    <h4>Final Verdict</h4>< /li>
+                <li class="collection-item center">{{cric.final_verdict|safe}}</li>
+            </ul>
+        </div>
+    </div>
+    <p class="center">Updated On : {{cric.updated_on|safe}}</p>
+    <footer class="grey darken-3" style="z-index:999">
+    <div class="footer-copyright" style="padding-top:5px;">
+        <div class="container white-text" style=" margin-top:10px;">Fantasy 2k17<a class="white-text text-lighten-3 right">All Rights Reserved. Made by Yellow Inc.</a> </div>
+    </div>
+    </footer>
+    <script src="{% static "js/jquery-2.1.4.js" %}">
+    </script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="{% static "js/materialize.js" %}">
+    </script>
+    <script src="{% static "js/init.js" %}">
+    </script>
+    <script type='text/javascript' src="{% static "js/mobile.js" %}"></script>
+</body>
+</html>
